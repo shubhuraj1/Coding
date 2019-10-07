@@ -25,9 +25,18 @@ class LinkedList:
         last_node.next=new_node
 
     def prepend(self, data):
-        new_node:=Node(data)
+        new_node = Node(data)
         new_node.next=self.head
         self.head=new_node
+
+    def insertafternode(self, prev_node, data):
+
+        if not prev_node:
+            print("Prev node is empty")
+            return
+        new_node = Node(data)
+        new_node.next=prev_node.next
+        prev_node.next=new_node
 
 
 llist=LinkedList()
