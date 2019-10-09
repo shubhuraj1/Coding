@@ -74,16 +74,45 @@ class LinkedList:
             curr=curr.next
             count+=1
         return count
+    def searchelement(self, key):
+        curr=self.head
+        while curr:
+            if curr.data == key:
+                return True
+            curr=curr.next
+        return False
+    def getNthNode(self, index):
+        curr=self.head
+        count = 0
+        while curr:
+            if count == index:
+                return curr.data
+            count+=1
+            curr=curr.next
+
+        assert(False)
+        return 0
+
+    def removeDups(self):
+        curr = curr2 = self.head
+        while curr is not None:
+            while curr2.next is not None:
+                if curr2.next.data == curr.data:
+                    curr2.next = curr2.next.next
+                else:
+                    curr2 = curr2.next
+            curr = curr2 = curr.next
+
 
 llist = LinkedList()
-llist.append(2)
+llist.append(3)
+llist.append(4)
+llist.append(7)
+llist.append(5)
 llist.append(3)
 llist.append(5)
-llist.append(7)
 llist.append(9)
-llist.append(6)
+llist.append(9)
 llist.print_list()
-#llist.delete_node(7)
-#llist.print_list()
-#llist.delete_list()
-#llist.print_
+llist.removeDups()
+llist.print_list()
