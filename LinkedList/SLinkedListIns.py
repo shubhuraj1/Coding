@@ -92,7 +92,6 @@ class LinkedList:
 
         assert(False)
         return 0
-
     def removeDups(self):
         curr = curr2 = self.head
         while curr is not None:
@@ -102,6 +101,18 @@ class LinkedList:
                 else:
                     curr2 = curr2.next
             curr = curr2 = curr.next
+    def detectloop(self):
+        curr=self.head
+        temp=""
+        while curr:
+            if curr.next==None:
+                return False
+            if  curr.next==temp:
+                return True
+            nex=curr.next
+            curr.next=temp
+            curr=nex
+        return False
 
 
 llist = LinkedList()
