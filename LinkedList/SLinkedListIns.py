@@ -7,7 +7,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
-    def print_list(self):
+
         curr_node = self.head
         while curr_node:
             print(curr_node.data, end="-")
